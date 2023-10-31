@@ -1,3 +1,5 @@
 #!/usr/bin/python3
+alphabet = ""
 for letter in "abcdefghijklmnopqrstuvwxyz":
-    print(letter, end='')
+    alphabet += letter
+print(alphabet, end='')
