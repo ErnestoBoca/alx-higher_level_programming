@@ -28,4 +28,8 @@ class Student():
 
     def reload_from_json(self, json):
         """replaces all attributes of the Student instance"""
-        self.__dict__ = json
+        for key in json:
+            try:
+                setattr(self, key, json[key])
+            except:
+                pass
