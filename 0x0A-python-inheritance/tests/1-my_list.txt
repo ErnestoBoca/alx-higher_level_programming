@@ -16,8 +16,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> my_list2 = MyList()
 >>> my_list2.print_sorted()
 []
->>> my_list2.print_sorted()
+>>> my_list3.print_sorted()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-NameError: name 'my_list2' is not defined
+NameError: name 'my_list3' is not defined
 
