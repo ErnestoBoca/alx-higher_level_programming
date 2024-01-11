@@ -29,3 +29,7 @@ Traceback (most recent call last):
   File "/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 10, in say_my_name
     raise TypeError("first_name must be a string")
 TypeError: first_name must be a string
+>>> say_my_name(1, "Hello")
+Traceback (most recent call last):
+..
+TypeError: first_name must be a string
