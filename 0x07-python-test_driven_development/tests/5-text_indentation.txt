@@ -67,3 +67,17 @@ Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres.
 <BLANKLINE>
 :
 <BLANKLINE>
+
+>>> text_indentation(" \n Hello. Whatcha up to?")
+<BLANKLINE>
+ Hello.
+<BLANKLINE>
+Whatcha up to?
+<BLANKLINE>
+
+>>> text_indentation("Hello \n . How are you?")
+Hello 
+ .
+<BLANKLINE>
+How are you?
+<BLANKLINE>
