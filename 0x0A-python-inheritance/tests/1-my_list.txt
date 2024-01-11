@@ -20,4 +20,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'my_list3' is not defined
-
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+[1]
+>>> print(my_list)
+[1]
