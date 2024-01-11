@@ -31,3 +31,5 @@ TypeError: a must be an integer
 2
 >>> add_integer(-2.9, -0.2)
 -2
+>>> add_integer(-100, 2)
+-98
