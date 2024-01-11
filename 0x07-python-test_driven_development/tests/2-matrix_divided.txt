@@ -39,3 +39,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix[0][1] = 2.5
 >>> matrix_divided(matrix, 10)
 [[0.1, 0.25, 0.3], [0.4, 0.5, 0.6]]
+>>> matrix = ""
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
