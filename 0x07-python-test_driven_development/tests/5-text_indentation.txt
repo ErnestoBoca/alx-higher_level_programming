@@ -1,0 +1,28 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+>>> text_indentation(None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 11, in text_indentation
+    raise TypeError("text must be a string")
+TypeError: text must be a string
+>>> text_indentation("asasfdkas? asjashasf. asasajshdfaiidjrotrtrf: jskaskdfdhfonsdsdsd")
+asasfdkas?
+<BLANKLINE>
+asjashasf.
+<BLANKLINE>
+asasajshdfaiidjrotrtrf:
+<BLANKLINE>
+jskaskdfdhfonsdsdsd
+>>> text_indentation("asasfdkas? asjashasf. asasajshdfaiidjrotrtrf: jskaskdfdhfonsdsdsd.")
+asasfdkas?
+<BLANKLINE>
+asjashasf.
+<BLANKLINE>
+asasajshdfaiidjrotrtrf:
+<BLANKLINE>
+jskaskdfdhfonsdsdsd.
+<BLANKLINE>
