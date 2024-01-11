@@ -50,3 +50,19 @@ Traceback (most recent call last):
   File "/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 16, in integer_validator
     raise TypeError("{} must be an integer".format(name))
 TypeError:  must be an integer
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg = BaseGeometry()
+>>> bg.area(5, 5)
+Traceback (most recent call last):
+..
+TypeError: area() takes 1 positional argument but 3 were given
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
