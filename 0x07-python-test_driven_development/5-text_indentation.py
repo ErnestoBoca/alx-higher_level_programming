@@ -14,7 +14,9 @@ def text_indentation(text):
     for char in text:
         if char != " " or print_space:
             print(char, end="")
-        print_space = True
+
         if char == "." or char == "?" or char == ":":
             print("\n")
             print_space = False
+        elif char != " ":
+            print_space = True

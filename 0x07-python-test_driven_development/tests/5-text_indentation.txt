@@ -86,3 +86,9 @@ How are you?
 Traceback (most recent call last):
 ...
 TypeError: text must be a string
+
+>>> text_indentation("   Hello.  How are you?")
+   Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
