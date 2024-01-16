@@ -65,7 +65,8 @@ class TestRectangle(unittest.TestCase):
     def test_width(self):
         """Tests the validation of width"""
         r1 = Rectangle(10, 2)
-        self.assertEqual(r1.width, 10)
+        r1.width = 7
+        self.assertEqual(r1.width, 7)
 
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r1.width = []
@@ -88,7 +89,8 @@ class TestRectangle(unittest.TestCase):
     def test_height(self):
         """Tests the validation of height"""
         r1 = Rectangle(10, 2)
-        self.assertEqual(r1.height, 2)
+        r1.height = 5
+        self.assertEqual(r1.height, 5)
 
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r1.height = []
@@ -111,7 +113,8 @@ class TestRectangle(unittest.TestCase):
     def test_x(self):
         """Tests the validation of x"""
         r3 = Rectangle(7, 8, 3, 5, 12)
-        self.assertEqual(self.r3.x, 3)
+        r3.x = 10
+        self.assertEqual(r3.x, 10)
 
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r3.x = []
@@ -129,10 +132,11 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, float('nan'), 2)
 
-    def test_x(self):
+    def test_y(self):
         """Tests the validation of y"""
         r3 = Rectangle(7, 8, 3, 5, 12)
-        self.assertEqual(r3.y, 5)
+        r3.y = 10
+        self.assertEqual(r3.y, 10)
 
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r3.y = []
@@ -198,7 +202,6 @@ class TestRectangle(unittest.TestCase):
             r1.display(10)
 
     def test_str(self):
-
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(r1.__str__(),
                          "[Rectangle] ({}) 2/1 - 4/6".format(r1.id))
