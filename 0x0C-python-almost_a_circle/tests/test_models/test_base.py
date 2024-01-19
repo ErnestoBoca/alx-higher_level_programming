@@ -135,6 +135,7 @@ class TestBase(unittest.TestCase):
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
 
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r1))
         self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r2))
         self.assertIsNot(r1, r2)
         self.assertNotEqual(r1, r2)
@@ -144,6 +145,7 @@ class TestBase(unittest.TestCase):
         s1_dictionary = s1.to_dictionary()
         s2 = Square.create(**s1_dictionary)
 
+        self.assertEqual("[Square] (7) 5/1 - 3", str(s1))
         self.assertEqual("[Square] (7) 5/1 - 3", str(s2))
         self.assertIsNot(s1, s2)
         self.assertNotEqual(s1, s2)
