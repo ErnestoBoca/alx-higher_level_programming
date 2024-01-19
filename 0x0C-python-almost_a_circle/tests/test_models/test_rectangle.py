@@ -6,8 +6,6 @@ from models.rectangle import Rectangle
 from models.base import Base
 from io import StringIO
 from unittest.mock import patch
-import sys
-import io
 
 
 class TestRectangle(unittest.TestCase):
@@ -78,9 +76,25 @@ class TestRectangle(unittest.TestCase):
             r1.width = 0
 
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("invalid", 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle({"a": 1, "b": 2}, 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle((1, 2, 3), 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(frozenset({1, 2, 3, 1}), 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle({1, 2, 3}, 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle([1, 2, 3], 2)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle(range(5), 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(b'Python', 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(bytearray(b'abcdefg'), 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(memoryview(b'abcedfg'), 2)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle(complex(5), 2)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -118,6 +132,14 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(1, (1, 2, 3))
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, 5.5)
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, complex(5))
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, memoryview(b'abcedfg'))
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, (1, 2, 3))
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(1, range(5))
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(3, -2)
@@ -145,6 +167,18 @@ class TestRectangle(unittest.TestCase):
             Rectangle(3, 5, "1", 2)
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(3, 10, -2)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, complex(5))
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, True, 2)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, [1, 2, 3], 2)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, memoryview(b'abcedfg'))
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, bytearray(b'abcdefg'))
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, (1, 2, 3), 2)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, float('inf'), 2)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -182,9 +216,17 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 2, 3, None)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 1, {"a": 1, "b": 2})
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 1, {1, 2, 3})
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 3, frozenset({1, 2, 3, 1}))
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 2, 3, 5.5)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 2, 3, complex(5))
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 1, (1, 2, 3))
 
     def test_area(self):
         """Tests the area() function"""
