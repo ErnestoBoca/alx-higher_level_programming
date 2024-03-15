@@ -14,7 +14,7 @@ def selectDB():
     db = MySQLdb.connect(host=MY_HOST, user=MY_USER,
                          passwd=MY_PASS, db=MY_DB, port=MY_PORT)
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
     rows = cursor.fetchall()
 
     for row in rows:
