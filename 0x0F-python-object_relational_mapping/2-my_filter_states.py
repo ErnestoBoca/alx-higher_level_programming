@@ -15,7 +15,8 @@ def selectDB():
     db = MySQLdb.connect(host=MY_HOST, user=MY_USER,
                          passwd=MY_PASS, db=MY_DB, port=MY_PORT)
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id".format(arg)
+    query = "SELECT * FROM states WHERE name LIKE \
+             BINARY '{}' ORDER BY id".format(arg)
     cursor.execute(query)
     rows = cursor.fetchall()
 
