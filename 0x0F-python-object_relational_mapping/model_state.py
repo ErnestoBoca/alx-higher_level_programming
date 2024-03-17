@@ -12,7 +12,9 @@ Base = declarative_base(metadata=mymetadata)
 
 
 class State(Base):
-    """The states class that creats the states table"""
+    """
+    The states class that creats the states table
+    """
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, unique=True,
