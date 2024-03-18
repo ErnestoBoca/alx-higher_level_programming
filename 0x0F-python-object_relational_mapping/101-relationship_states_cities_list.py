@@ -17,7 +17,7 @@ def execute():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).join(City).order_by(State.id, City.id).all()
+    states = session.query(State).order_by(State.id).all()
 
     for state in states:
         print('{}: {}'.format(state.id, state.name))
