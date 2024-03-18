@@ -16,11 +16,9 @@ def execute():
                            .format(user, pswd, db))
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-    session = Session()
+    session = Session()  
 
-    states = session.query(State).order_by(State.id)
-
-    for state in states:
+    for state in session.query(State).order_by(State.id):
         print('{}: {}'.format(state.id, state.name))
         for city in state.cities:
             print('\t{}:{}'.format(city.id, city.name))
