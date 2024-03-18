@@ -21,6 +21,8 @@ def execute():
     state = session.query(State).first()
     if state is not None:
         print('{}: {}'.format(state.id, state.name))
+    else:
+        print("Nothing")
 
 
 if __name__ == '__main__':
