@@ -19,9 +19,10 @@ def execute():
     session = Session()
 
     state = session.query(State).first()
-
-    print('{}: {}'.format(state.id, state.name))
-
+    if state is not None:
+        print('{}: {}'.format(state.id, state.name))
+    else:
+        print()
 
 if __name__ == '__main__':
     execute()
