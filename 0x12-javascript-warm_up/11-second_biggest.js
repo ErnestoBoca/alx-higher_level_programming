@@ -8,7 +8,7 @@ else {
     if (process.argv[i] > biggest) {
       secBiggest = biggest;
       biggest = parseInt(process.argv[i]);
-    }
+    } else if (process.argv[i] > secBiggest) secBiggest = parseInt(process.argv[i]);
   }
   console.log(secBiggest);
 }
