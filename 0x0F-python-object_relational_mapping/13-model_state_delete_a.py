@@ -16,7 +16,7 @@ def execute():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(State.name.like('%a%')).all()
+    states = session.query(State).filter(State.name.like('%a%'))
 
     if states is not None:
         for state in states:
