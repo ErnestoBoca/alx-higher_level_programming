@@ -7,7 +7,4 @@ import sys
 
 if __name__ == '__main__':
     response = requests.get(sys.argv[1])
-    if 'X-Request-Id' in response.headers.keys():
-        print(response.headers['X-Request-Id'])
-    else:
-        print(None)
+        print(response.headers.get('X-Request-Id'))
